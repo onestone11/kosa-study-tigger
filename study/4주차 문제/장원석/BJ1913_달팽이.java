@@ -8,7 +8,6 @@ public class BJ1913_달팽이 {
 		int A = sc.nextInt();
 
 		int[][] map = new int[N][N];
-		boolean[][] visit = new boolean[N][N];
 		int[] dx = { -1, 0, 1, 0 };
 		int[] dy = { 0, 1, 0, -1 };
 		int ansX = 0;
@@ -20,12 +19,11 @@ public class BJ1913_달팽이 {
 
 		for (int i = 1; i <= N * N; i++) {
 			map[x][y] = i;
-			visit[x][y] = true;
 
 			int nx = x + dx[d];
 			int ny = y + dy[d];
 
-			if (visit[nx][ny]) {
+			if (map[nx][ny] > 0) {
 				d--;
 				if (d < 0)
 					d = 3;
