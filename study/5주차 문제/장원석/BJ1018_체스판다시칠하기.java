@@ -16,7 +16,6 @@ public class BJ1018_체스판다시칠하기 {
 		char[][] chessBoard = new char[8][8];
 		char[][] bigBoard = new char[N][M];
 
-		// white: true / black: false
 		for (int i = 0; i < 8; i++) {
 			for (int j = 0; j < 8; j++) {
 				if ((i + j) % 2 == 0) {
