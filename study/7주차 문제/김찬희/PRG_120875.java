@@ -1,5 +1,6 @@
 import java.util.*;
 
+
 class PRG_120875 {
     public double getGradient(int[] dot1, int[] dot2) {
         return (double) (dot2[1] - dot1[1]) / (dot2[0] - dot1[0]);
