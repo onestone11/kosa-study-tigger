@@ -7,11 +7,13 @@ public class PRG_340213 {
     public static int convertTime(String[] times) {
         return Integer.parseInt(times[0]) * 60 + Integer.parseInt(times[1]);
     }
+
     public static void main(String[] args) {
         System.out.println(solution("34:33", "13:00", "00:55", "02:55", new String[]{"next", "prev"}));
         System.out.println(solution("10:55", "00:05", "00:15", "06:55", new String[]{"prev", "next", "next"}));
         System.out.println(solution("07:22", "04:05", "00:15", "04:07", new String[]{"next"}));
     }
+    
     public static String solution(String video_len, String pos, String op_start, String op_end, String[] commands) {
         String answer = "";
         
