@@ -1,7 +1,7 @@
 import heapq
 def solution(scores):
     wonho = scores[0]
-    wonho_sum = sum(wonho)
+    
     
     for score in scores:
         if wonho[0] < score[0] and wonho[1] < score[1]:
@@ -23,6 +23,7 @@ def solution(scores):
     
     
     # 순위 계산
+    wonho_sum = sum(wonho)
     rank = 1
     while qualified:
         curr_sum = -heapq.heappop(qualified)
