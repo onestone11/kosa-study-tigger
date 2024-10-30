@@ -1,0 +1,31 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        String[] input= sc.nextLine().split(" ");
+
+        int count = Integer.parseInt(input[0]); //동전의 개수
+        int goalPrice = Integer.parseInt(input[1]); //목표금액
+        int minCount = 0; //동전 개수의 최솟값
+
+        int[] kindOfMoney = new int[count]; //동전 종류
+
+        for(int i = count-1; i >= 0; i--){
+            kindOfMoney[i] = Integer.parseInt(sc.nextLine());
+        }
+
+        for( int price : kindOfMoney){
+            if(goalPrice / price > 0){
+                minCount += goalPrice/price;
+                goalPrice %= price;
+            }
+        }
+
+        System.out.println(minCount);
+
+
+
+    }
+}
