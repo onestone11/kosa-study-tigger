@@ -1,5 +1,5 @@
 n = int(input())
-sizes = list(map(int, input().split()))[:6]
+sizes = list(map(int, input().split()))
 t, p = map(int, input().split())
 t_order = 0
 
