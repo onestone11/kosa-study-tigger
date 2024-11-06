@@ -8,7 +8,7 @@ public class PRG_42888 {
     public static void main(String[] args) {
         String[] record = {"Enter uid1234 Muzi", "Enter uid4567 Prodo","Leave uid1234","Enter uid1234 Prodo","Change uid4567 Ryan"};
 
-                List<String> answer = new ArrayList<>();
+        List<String> answer = new ArrayList<>();
         Map<String, String> users = new HashMap<>();
         
         for(String re : record) {
