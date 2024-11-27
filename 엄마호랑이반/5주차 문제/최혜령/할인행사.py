@@ -5,7 +5,6 @@ def solution(want, number, discount):
         bucket[want[i]] = number[i]
     
     j = 0
-    day, total = 0, sum(number)
     tmpbucket = bucket.copy()
     while j < len(discount):
         can = True
