@@ -13,7 +13,6 @@ public class 석유시추 {
 	}
 
 	static int N, M, count;
-	static boolean[][] visited;
 	static int[][] numberMap;
 	static Map<Integer, Integer> size = new HashMap<>();
 	static int[] dx = { 0, 1, 0, -1 };
@@ -22,7 +21,6 @@ public class 석유시추 {
 	private static int solution(int[][] land) {
 		N = land.length;
 		M = land[0].length;
-		visited = new boolean[N][M];
 	    numberMap = new int[N][M];
 		int number = 1;
 
@@ -30,7 +28,7 @@ public class 석유시추 {
 			for (int j = 0; j < M; j++) {
 				count = 0;
 
-				if (!visited[i][j] && land[i][j] != 0) {
+				if (numberMap[i][j] == 0 && land[i][j] != 0) {
 					dfs(i, j, number, land);
 					size.put(number, count);
 					number++;
@@ -58,7 +56,6 @@ public class 석유시추 {
 	}
 
 	private static void dfs(int x, int y, int number, int[][] land) {
-		visited[x][y] = true;
 	    numberMap[x][y] = number;
 		count++;
 
@@ -66,7 +63,7 @@ public class 석유시추 {
 			int nx = x + dx[d];
 			int ny = y + dy[d];
 
-			if (nx < 0 || ny < 0 || nx >= N || ny >= M || visited[nx][ny])
+			if (nx < 0 || ny < 0 || nx >= N || ny >= M || numberMap[nx][ny] > 0)
 				continue;
 
 			if (land[nx][ny] == 0)
