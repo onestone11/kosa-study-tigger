@@ -9,55 +9,28 @@ public class Programmers_2 {
 		
 	}
 	
-	private static int endX;
-	private static int endY;
-	private static int[] dx = new int[] {1, 0};
-	private static int[] dy = new int[] {0, 1};
-	
-	private static int[][] board;
-	private static boolean[][] visited;
-	private static TreeMap<Integer, Integer> res = new TreeMap<>(); 
-	
+	// 효율성 안됨 망알
 	public static int solution(int m, int n, int[][] puddles) {
-    // 수정해야됨 
-		endX = m; endY = n;
-		board = new int[m][n];
+		int[][] dp = new int[n + 1][m + 1];
+		dp[1][1] = 1;
+		
 		
 		for (int[] puddle : puddles) {
-			int x = puddle[0];
-			int y = puddle[1];
-			
-			board[x][y] = 1;
+			dp[puddle[1]][puddle[0]] = -1;
 		}
 		
-		visited[0][0] = true;
-		dfs(0, 0, 0);
-		
-		return res.firstEntry().getValue();
-	}
-	
-	public static void dfs(int x, int y, int cnt) {
-		if (endX - 1 == x && endY - 1 == y) {
-			if (res.containsKey(cnt)) {
-				res.put(cnt, res.get(cnt) + 1);
+		for (int x = 1; x < n + 1; x++) {
+			for (int y = 1; y < m + 1; y++) {
 				
-			} else {
-				res.put(cnt, 1);
-			}
-		} else {
-			for (int z = 0; z < 2; z++) {
-				int xx = x + dx[z];
-				int yy = y + dy[z];
-				
-				if (0 <= xx && xx < endX && 0 <= yy && yy < endX &&
-					!visited[xx][yy] && board[xx][yy] == 0) {
-					visited[xx][yy] = true;
-					dfs(xx, yy, ++cnt);
-					visited[xx][yy] = false;
+				if(dp[x][y] != -1) {
+					dp[x][y] += dp[x-1][y] + dp[x][y-1];
+					
+				} else {
+					dp[x][y] = 0;
 				}
 			}
-			
-			
 		}
-	}
+		return dp[n][m] % 1_000_000_007;
+    }
+
 }
