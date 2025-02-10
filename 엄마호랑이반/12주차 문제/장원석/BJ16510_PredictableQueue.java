@@ -10,7 +10,6 @@ public class BJ16510_PredictableQueue {
 
 		int N = Integer.parseInt(st.nextToken());
 		int M = Integer.parseInt(st.nextToken());
-		int[] arr = new int[N];
 		int[] s = new int[N];
 
 		st = new StringTokenizer(br.readLine());
