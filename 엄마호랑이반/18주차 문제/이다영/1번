@@ -1,0 +1,43 @@
+package temp_dev;
+
+import java.util.*;
+import java.io.*;
+
+public class Boj {
+	public static void main(String[] args) throws Exception {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		int n = Integer.parseInt(st.nextToken());
+		int m = Integer.parseInt(st.nextToken());
+		
+		List<int[]> sec = new ArrayList<>();
+		for (int i = 0; i < n; i++) {
+			st = new StringTokenizer(br.readLine());
+			int a = Integer.parseInt(st.nextToken());
+			int b = Integer.parseInt(st.nextToken());
+			
+			sec.add(new int[] {a, b});
+		}
+		
+		int[] vel = new int[m];
+		for (int i = 0; i < m; i++) {
+			vel[i] = Integer.parseInt(br.readLine());
+		}
+		
+		int count = 0;
+		for(int v : vel) {
+			boolean flag = true;
+			
+			for(int[] s : sec) {		// s[0] 최저속도 / s[1] 최고속도
+				if (s[0] > v || s[1] < v) {
+					flag = false;
+					break;
+				}
+			}
+			
+			if (flag) count++;
+		}
+		
+		System.out.println(count);
+	}  
+}
